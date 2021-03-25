@@ -1,10 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import api from '../service/api' 
+import { Button, Text} from "@chakra-ui/react"
 
-import { IUser } from '../store/modules/user/types';
-import { addNewUser } from '../store/modules/user/actions';
+import {StyledBox, Container} from './styles';
+
+import api from '../../service/api' 
+
+import { IUser } from '../../store/modules/user/types';
+import { addNewUser } from '../../store/modules/user/actions';
 
 const Home: React.FC = () => {
     const dispatch = useDispatch()
@@ -24,17 +28,17 @@ const Home: React.FC = () => {
 
     return (
         <div>
-            <h1>Hello</h1>
-            <div>
+            <Container>
                 { users.map( user => (
                     <div key={user.id}>
-                        <article>
-                            <p> { user.name } | { user.email } | { user.age }</p>
-                            <button onClick={ () => handleUsers(user) }> Adicionar </button>
-                        </article>
+                        <StyledBox maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+                            <Text fontSize="2xl"> { user.name } | { user.email } | { user.age }</Text>
+                            <Button colorScheme="teal" size="md" onClick={ () => handleUsers(user) }> Adicionar </Button>
+                        </StyledBox>
                     </div>
                 ))}
-            </div>
+                
+            </Container>
         </div>
     );
 }
