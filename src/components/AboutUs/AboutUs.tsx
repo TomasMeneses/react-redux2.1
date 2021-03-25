@@ -29,6 +29,7 @@ const AboutUs: React.FC = () => {
                         <Tr>
                         <Th>Id</Th>
                         <Th>Nome</Th>
+                        <Th>Email</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
@@ -37,6 +38,7 @@ const AboutUs: React.FC = () => {
                                 <Tr key={index}>
                                     <Td>{user.id}</Td>
                                     <Td>{user.name}</Td>
+                                    <Td>{user.email}</Td>
                                 </Tr>
                             ))
                         }
